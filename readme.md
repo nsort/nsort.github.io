@@ -7,10 +7,13 @@ explain the motivation and the business idea
 ## prototype information
 video from grasping and identification gifs
 
-<style>
+ <style>
 table, tr {border:hidden;}
 td, th {border:hidden;}
+table {width: 100%;} /* Ensures the table takes the full width */
+td {text-align: center;} /* Centers content horizontally */
 </style>
+
 
 <table style="border:hidden;cellspacing=0; cellpadding=0;">
   <tr>
@@ -18,12 +21,10 @@ td, th {border:hidden;}
     <th></th>
   </tr>
 
-<tr>
-    <td style = ""><img src="./assets/Highlycuttered.gif"/></td>
-   
+  <tr>
+    <td style=""><img src="./assets/Highlycuttered.gif"/></td>
   </tr>
-
-
+</table>
 ## Milestones during VBI
 
 
