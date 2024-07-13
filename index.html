@@ -1,51 +1,103 @@
-<div style="margin: 0 75px;"> <!-- Adds margins to the sides of the entire site except "Our Team" -->
-  <div style="text-align: center; margin-bottom: 40px;">
-    <h1 style="margin: 0; font-size: 36px;">nsort</h1>
-    <p style="margin: 0; font-size: 14px; color: gray;">next generation waste management</p>
-    <p style="font-size: 18px; font-weight: bold; color: #333; margin: 75px 75px;">
-      Our vision is to modernise waste management via AI, advanced computer vision, and robotics to optimise recycling and sustainability.
-    </p>
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>nsort - Next Generation Waste Management</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px; /* Margin added around the entire body */
+      padding: 0;
+      background-color: #f4f4f4;
+      text-align: center; /* Ensures all text is centered */
+    }
 
-  <div style="text-align: center; margin-top: 40px;">
-    <h2 style="font-size: 28px; color: #333;">Our Solution</h2>
-    <p>We have developed and tested a small-scale prototype of our grasping sorting system. Additionally, we created a digital twin to generate synthetic data for sorting and identification tests; the results were published in <a href="https://2024.ieee-icra.org/" target="_blank"><strong>ICRA</strong></a> (the most prestigious robotics conference). We have analysed datasets for waste material identification and evaluated recent state-of-the-art AI models. Furthermore, we have studied published reports by global industry research leaders such as <a href="https://www.ibisworld.com/" target="_blank"><strong>IBISWorld</strong></a> to evaluate market size, major players, industry trends, and future outlooks.</p>
-    
-    <img src="./assets/Highlycluttered.gif" style="width: 60%; height: auto; margin-top: 20px;" alt="Sorting System Prototype"/>
-  </div>
+    header {
+      padding: 10px;
 
-  <!-- Placeholder for additional content between Our Solution and Our Team -->
-</div>
+    }
 
-<div style="text-align: center; margin: 75px 0;"> <!-- "Our Team" section without side margins -->
-  <h2 style="font-size: 28px; color: #333;">Our Team</h2>
-</div>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%; /* Full width */
+      max-width: 960px; /* Maximum width to ensure readability on larger screens */
+      margin: auto; /* Centering the container */
+    }
 
-<div style="display: flex; justify-content: space-around; align-items: center;"> <!-- Also without side margins -->
-  <div style="text-align: center; margin: 10px;">
-    <img src="./assets/mohammad.jpg" alt="Team Member 1" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-    <p><strong>Mohammadreza Kasaei</strong>
-    <br>PhD in machine learning and autonomous systems.
-    <br>3 years research associate experience at UoE.
-    <br>Numerous publications at top robotics and ML conferences.
-    <br>Contact: m.kasaei@ed.ac.uk</p>
+    .team {
+      display: flex;
+      flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 0%; /* Removes circular frame */
+      object-fit: cover;
+      margin: 10px 0; /* Space above and below images */
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+  <p style="font-size: 40px; margin-bottom: 0px;">nsort</p>
+
+    <p class="vision-statement">next generation waste management</p>
+  </header>
+  <p>Our vision is to modernise waste management via AI, advanced computer vision, and robotics to optimise recycling and sustainability.</p>
+  <div class="container">
+    <h2>Our Solution</h2>
+    <p>We have developed and tested a small-scale prototype of our grasping sorting system. Additionally, we created a digital twin to generate synthetic data for sorting and identification tests; the results were published in <a href="https://2024.ieee-icra.org/" target="_blank">ICRA</a>. We have analysed datasets for waste material identification and evaluated recent state-of-the-art AI models. Furthermore, we have studied published reports by global industry research leaders such as <a href="https://www.ibisworld.com/" target="_blank">IBISWorld</a> to evaluate market size, major players, industry trends, and future outlooks.</p>
+    <img src="./assets/Highlycluttered.gif" alt="Sorting System Prototype" style="width: 80%; height: auto;"/> <!-- Image is no longer circular and has a percentage width for responsiveness -->
+    <h2>Our Team</h2>
+    <div class="team">
+      <div>
+        <img src="./assets/mohammad.jpg" alt="Mohammadreza Kasaei">
+        <strong>Mohammadreza Kasaei</strong><br>
+        PhD in machine learning and autonomous systems.<br>
+        3 years research associate experience at UoE.<br>
+        Numerous publications at top robotics and ML conferences.<br>
+        Contact: <a href="mailto:m.kasaei@ed.ac.uk">m.kasaei@ed.ac.uk</a>
+      </div>
+      <div>
+        <img src="./assets/caleb.jpg" alt="Caleb Yip">
+        <strong>Caleb Yip</strong><br>
+        MBA from The University of Chicago.<br>
+        15 years of experience at corporations such as JPM and Apple.<br>
+        Extensive expertise in strategy, insight and data analytics.<br>
+        Contact: <a href="mailto:cyip.booth@gmail.com">cyip.booth@gmail.com</a>
+      </div>
+      <div>
+        <img src="./assets/daniel.jpg" alt="Daniel Layeghi">
+        <strong>Daniel Layeghi</strong><br>
+        PhD in robotics and autonomous systems at UoE.<br>
+        Publications in top robotics and ML conferences.<br>
+        Expertise in building core robotics stack at deep tech startups.<br>
+        Contact: <a href="mailto:d.layeghi@sms.ed.ac.uk">d.layeghi@sms.ed.ac.uk</a>
+      </div>
+    </div>
   </div>
-  <div style="text-align: center; margin: 10px;">
-    <img src="./assets/caleb.jpg" alt="Team Member 2" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-    <p><strong>Caleb Yip</strong>
-    <br>MBA from The University of Chicago.
-    <br>15 years of experience at corporations such as JPM and Apple.
-    <br>Extensive expertise in strategy, insight and data analytics.
-    <br>Contact: cyip.booth@gmail.com</p>
-  </div>
-  <div style="text-align: center; margin: 10px;">
-    <img src="./assets/daniel.jpg" alt="Team Member 3" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-    <p><strong>Daniel Layeghi</strong>
-    <br>PhD in robotics and autonomous systems at UoE.
-    <br>Publications in top robotics and ML conferences.
-    <br>Expertise in building core robotics stack at deep tech startups.
-    <br>Contact: d.layeghi@sms.ed.ac.uk</p>
-  </div>
-  <!-- Add more team members as needed -->
-</div>
+</body>
+</html>
 
