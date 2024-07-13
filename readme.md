@@ -5,7 +5,8 @@
 explain the motivation and the business idea
 
 ## prototype information
-video from grasping and identification gifs
+We have developed and tested a small-scale prototype of our grasping sorting system. Additionally, we created a digital twin to generate synthetic data for sorting and identification tests; the results were published in [(**ICRA**)](https://www.icra2024.org/) (the most prestigious robotics conference). We have analysed datasets for waste material identification and evaluated recent state-of-the-art AI models. 
+Furthermore, we have studied published reports by global industry research leaders such as [**IBISWorld**](https://www.ibisworld.com/) to evaluate market size, major players, industry trends and future outlooks.
 
  <style>
 table, tr {border:hidden;}
@@ -25,6 +26,7 @@ td {text-align: center;} /* Centers content horizontally */
     <td style=""><img src="./assets/Highlycuttered.gif"/></td>
   </tr>
 </table>
+
 ## Milestones during VBI
 
 
