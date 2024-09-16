@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nsort - Next Generation Waste Management</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
 
         :root {
-            --bg-color: #f8f8f8;
-            --text-color: #333;
+            --bg-color: #fafafa;
+            --text-color: #2a2a2a;
             --accent-color: #c0a080;
-            --section-padding: 100px 5vw;
+            --accent-color-light: #e0d0b0;
+            --section-padding: 120px 5vw;
         }
 
         * {
@@ -25,10 +26,12 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -39,22 +42,28 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 8vw;
+            font-size: 7vw;
             font-weight: 700;
             margin-bottom: 20px;
             opacity: 0;
             animation: fadeIn 1s ease-out forwards;
+            letter-spacing: -0.02em;
         }
 
         header p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 300;
             opacity: 0;
             animation: fadeIn 1s ease-out 0.5s forwards;
+            color: var(--accent-color);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         section {
@@ -63,26 +72,50 @@
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 40px;
+            font-size: 2.75rem;
+            margin-bottom: 50px;
             text-align: center;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
         }
 
         p {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto 30px;
             font-weight: 300;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
         }
 
         .gif-container {
             text-align: center;
-            margin: 60px 0;
+            margin: 80px 0;
         }
 
         .gif-container img {
             max-width: 100%;
             height: auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gif-container img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .milestones {
@@ -95,35 +128,46 @@
         }
 
         .milestone {
-            flex-basis: calc(50% - 20px);
-            margin-bottom: 40px;
-            padding: 20px;
+            flex-basis: calc(50% - 30px);
+            margin-bottom: 60px;
+            padding: 40px;
             background-color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .milestone:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .milestone::before {
             counter-increment: milestone;
             content: "0" counter(milestone);
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            color: var(--accent-color-light);
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            opacity: 0.2;
+            font-weight: 700;
+            z-index: 0;
+        }
+
+        .milestone-content {
+            position: relative;
+            z-index: 1;
         }
 
         .team {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
+            gap: 80px;
+            margin-top: 80px;
         }
 
         .team-member {
@@ -131,32 +175,39 @@
         }
 
         .team-member img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             filter: grayscale(100%);
-            transition: filter 0.3s ease;
+            transition: filter 0.3s ease, transform 0.3s ease;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .team-member:hover img {
             filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         .team-member h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
         }
 
         .team-member p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
 
         a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         a:hover {
@@ -168,17 +219,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 992px) {
+            :root {
+                --section-padding: 100px 5vw;
+            }
+
+            h1 {
+                font-size: 9vw;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .team {
+                gap: 60px;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 12vw;
             }
 
             h2 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
 
             section {
-                padding: 60px 5vw;
+                padding: 80px 5vw;
             }
 
             .milestone {
@@ -187,6 +256,7 @@
 
             .team {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 50px;
             }
 
             .team-member:nth-child(1) {
@@ -203,8 +273,21 @@
         }
 
         @media (max-width: 480px) {
+            h1 {
+                font-size: 14vw;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
             .team {
                 grid-template-columns: 1fr;
+            }
+
+            .team-member img {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
@@ -239,10 +322,18 @@
             <div class="container">
                 <h2>Milestones</h2>
                 <div class="milestones">
-                    <div class="milestone">Develop a Non-Integrated Prototype</div>
-                    <div class="milestone">Gather Industry Feedback and Validate Prototype</div>
-                    <div class="milestone">Establish Partnerships for Pilot Projects</div>
-                    <div class="milestone">Align Business Plan and Prototype with Market Demands</div>
+                    <div class="milestone">
+                        <div class="milestone-content">Develop a Non-Integrated Prototype</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">Gather Industry Feedback and Validate Prototype</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">Establish Partnerships for Pilot Projects</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-content">Align Business Plan and Prototype with Market Demands</div>
+                    </div>
                 </div>
             </div>
         </section>
