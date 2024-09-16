@@ -1,157 +1,258 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>nsort - Next Generation Waste Management</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="css/styles.css" type="text/css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px; /* Margin added around the entire body */
-      padding: 0;
-      background-color: #f4f4f4;
-      text-align: center; /* Ensures all text is centered */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nsort - Next Generation Waste Management</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
-    header {
-      padding-top: 2px;
-      padding-bottom: 45px;
-      background-color: lightgray;
+        :root {
+            --bg-color: #f8f8f8;
+            --text-color: #333;
+            --accent-color: #c0a080;
+            --section-padding: 100px 5vw;
+        }
 
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%; /* Full width */
-      max-width: 960px; /* Maximum width to ensure readability on larger screens */
-      margin: auto; /* Centering the container */
-    }
-    .container>ul>li{
-    text-align: left;
-    }
-    
-    .milestones {
-  text-align: left; /* Align text to the left */
-  padding-left: 20px; /* Add padding for indentation */
-  margin-top: 20px; /* Add some space above the list */
-}
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-.milestones li {
-  margin-bottom: 10px; /* Add space between list items */
-  list-style-type: square; /* Change bullet style */
-  font-size: 16px; /* Ensure font size is consistent */
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.milestones h2 {
-  text-align: center; /* Align text to the left */
-}
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-    .team {
-      display: flex;
-      flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      background-color: lightgray;
-    }
-    
-     .team-bg {
-      background-color: lightgray;
-      margin: auto;
-      padding: 10px 10px;
-    }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 8vw;
+            font-weight: 700;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
 
-    img {
-      width: 100px;
-      height: 100px;
-      border-radius: 0%; /* Removes circular frame */
-      object-fit: cover;
-      margin: 10px 0; /* Space above and below images */
-    }
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+        }
 
-    h1, h2 {
-      color: #333;
-    }
+        section {
+            padding: var(--section-padding);
+        }
 
-    a {
-      color: #007BFF;
-      text-decoration: none;
-    }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
 
-  </style>
+        .gif-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .milestones {
+            counter-reset: milestone;
+        }
+
+        .milestone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .milestone::before {
+            counter-increment: milestone;
+            content: "0" counter(milestone);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 20px;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .team-member:hover img {
+            filter: grayscale(0%);
+        }
+
+        .team-member h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 12vw;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 5vw;
+            }
+
+            .team {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-member:nth-child(1) {
+                order: 1;
+            }
+
+            .team-member:nth-child(2) {
+                order: 3;
+            }
+
+            .team-member:nth-child(3) {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-  <p style="font-size: 60px; margin-bottom: 0px; padding-bottom:0px;"><b>nsort</b></p>
-  <p style="font-size: 15px; margin-top: 0px; padding-top: 0px">next generation waste management</p>
-  </header>
-  <div class="container">
-    <h2>Our Vision</h2>
-  <p>Our vision is to modernise waste management via AI, advanced computer vision, and robotics to optimise recycling in pursuit of a net-zero future for our planet.</p>
-    <h2>Our Solution</h2>
-    <p>We have developed and tested a small-scale prototype of our grasping sorting system. Additionally, we created a digital twin to generate synthetic data for sorting and identification tests; the results were published in <a href="https://2024.ieee-icra.org/" target="_blank">ICRA</a>. We have analysed datasets for waste material identification and evaluated recent state-of-the-art AI models. Furthermore, we have studied published reports by global industry research leaders such as <a href="https://www.ibisworld.com/" target="_blank">IBISWorld</a> to evaluate market size, major players, industry trends, and future outlooks.</p>
-    <img src="./assets/Highlycluttered.gif" alt="Sorting System Prototype" style="width: 80%; height: auto;"/> <!-- Image is no longer circular and has a percentage width for responsiveness -->
-<div class="milestones">
-  <h2>Milestones</h2>
-  <ol>
-    <li>Milestone 1: Develop a Non-Integrated Prototype</li>
-    <li>Milestone 2: Gather Industry Feedback and Validate Prototype</li>
-    <li>Milestone 3: Establish Partnerships for Pilot Projects</li>
-    <li>Milestone 4: Align Business Plan and Prototype with Market Demands</li>
-  </ol>
-</div>
+    <header>
+        <div class="container">
+            <h1>nsort</h1>
+            <p>Next generation waste management</p>
+        </div>
+    </header>
 
-    </div>
-    <div class="team-bg">
-    <h2>Our Team</h2>
-    <div class="team">
-      <div>
-      <div>
-    <img src="./assets/mohammad.jpg" alt="Team Member 1" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-        </div>
-        <div>
-        <strong>Mohammadreza Kasaei</strong><br>
-        PhD in machine learning and autonomous systems.<br>
-        3 years research associate experience at UoE.<br>
-        Numerous publications at top robotics and ML conferences.<br>
-        Contact: <a href="mailto:m.kasaei@ed.ac.uk">m.kasaei@ed.ac.uk</a>
-      </div>
-      
-      </div>
-      <div>
-      <div>
-    <img src="./assets/caleb.jpg" alt="Team Member 2" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-        </div>
-      <div>
-        <strong>Caleb Yip</strong><br>
-        MBA from The University of Chicago.<br>
-        15 years of experience at corporations such as JPM and Apple.<br>
-        Extensive expertise in strategy, operations and data analytics.<br>
-        Contact: <a href="mailto:cyip.booth@gmail.com">cyip.booth@gmail.com</a>
-        </div>
-      
-      </div>
-      <div>
-      <div>
-    <img src="./assets/daniel.jpg" alt="Team Member 3" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
-        </div>
-      <div>
-        <strong>Daniel Layeghi</strong><br>
-        PhD in robotics and autonomous systems at UoE.<br>
-        Publications in top robotics and ML conferences.<br>
-        Expertise in building core robotics stack at deep tech startups.<br>
-        Contact: <a href="mailto:d.layeghi@sms.ed.ac.uk">d.layeghi@sms.ed.ac.uk</a>
-      </div>
-      </div>
-      </div>
-    </div>
+    <main>
+        <section id="vision">
+            <div class="container">
+                <h2>Our Vision</h2>
+                <p>Our vision is to modernise waste management via AI, advanced computer vision, and robotics to optimise recycling in pursuit of a net-zero future for our planet.</p>
+            </div>
+        </section>
+
+        <section id="solution">
+            <div class="container">
+                <h2>Our Solution</h2>
+                <p>We have developed and tested a small-scale prototype of our grasping sorting system. Additionally, we created a digital twin to generate synthetic data for sorting and identification tests; the results were published in <a href="https://2024.ieee-icra.org/" target="_blank">ICRA</a>. We have analysed datasets for waste material identification and evaluated recent state-of-the-art AI models. Furthermore, we have studied published reports by global industry research leaders such as <a href="https://www.ibisworld.com/" target="_blank">IBISWorld</a> to evaluate market size, major players, industry trends, and future outlooks.</p>
+                <div class="gif-container">
+                    <img src="./assets/Highlycluttered.gif" alt="Sorting System Prototype">
+                </div>
+            </div>
+        </section>
+
+        <section id="milestones">
+            <div class="container">
+                <h2>Milestones</h2>
+                <div class="milestones">
+                    <div class="milestone">Develop a Non-Integrated Prototype</div>
+                    <div class="milestone">Gather Industry Feedback and Validate Prototype</div>
+                    <div class="milestone">Establish Partnerships for Pilot Projects</div>
+                    <div class="milestone">Align Business Plan and Prototype with Market Demands</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team">
+                    <div class="team-member">
+                        <img src="./assets/mohammad.jpg" alt="Mohammadreza Kasaei">
+                        <h3>Mohammadreza Kasaei</h3>
+                        <p>PhD in machine learning and autonomous systems. 3 years research associate experience at UoE. Numerous publications at top robotics and ML conferences.</p>
+                        <p><a href="mailto:m.kasaei@ed.ac.uk">m.kasaei@ed.ac.uk</a></p>
+                    </div>
+                    <div class="team-member">
+                        <img src="./assets/daniel.jpg" alt="Daniel Layeghi">
+                        <h3>Daniel Layeghi</h3>
+                        <p>PhD in robotics and autonomous systems at UoE. Publications in top robotics and ML conferences. Expertise in building core robotics stack at deep tech startups.</p>
+                        <p><a href="mailto:d.layeghi@sms.ed.ac.uk">d.layeghi@sms.ed.ac.uk</a></p>
+                    </div>
+                    <div class="team-member">
+                        <img src="./assets/caleb.jpg" alt="Caleb Yip">
+                        <h3>Caleb Yip</h3>
+                        <p>MBA from The University of Chicago. 15 years of experience at corporations such as JPM and Apple. Extensive expertise in strategy, operations and data analytics.</p>
+                        <p><a href="mailto:cyip.booth@gmail.com">cyip.booth@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
-
