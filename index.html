@@ -14,7 +14,7 @@
             --secondary-color: #4a4a4a;
             --accent-color: #0056b3;
             --light-gray: #f4f4f4;
-            --section-padding: 120px 5vw;
+            --section-padding: 80px 5vw;
         }
 
         * {
@@ -39,17 +39,18 @@
         }
 
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             background-color: var(--light-gray);
+            padding: 20px;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 8vw;
+            font-size: 12vw;
             font-weight: 700;
             margin-bottom: 20px;
             opacity: 0;
@@ -71,7 +72,7 @@
         }
 
         header p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
             opacity: 0;
             animation: fadeIn 1s ease-out 0.5s forwards;
@@ -86,8 +87,8 @@
 
         h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2rem;
+            margin-bottom: 30px;
             text-align: center;
             color: var(--primary-color);
             position: relative;
@@ -109,27 +110,21 @@
             max-width: 720px;
             margin: 0 auto 30px;
             font-weight: 400;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.8;
             color: var(--text-color);
         }
 
         .gif-container {
             text-align: center;
-            margin: 80px 0;
+            margin: 40px 0;
         }
 
         .gif-container img {
             max-width: 100%;
             height: auto;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gif-container img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .milestones {
@@ -142,31 +137,25 @@
         }
 
         .milestone {
-            flex-basis: calc(50% - 30px);
-            margin-bottom: 60px;
-            padding: 40px;
+            flex-basis: 100%;
+            margin-bottom: 30px;
+            padding: 30px;
             background-color: var(--light-gray);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .milestone:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .milestone::before {
             counter-increment: milestone;
             content: "0" counter(milestone);
             font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
+            font-size: 3rem;
             color: rgba(26, 26, 26, 0.1);
             position: absolute;
-            top: -20px;
-            right: -10px;
+            top: -10px;
+            right: -5px;
             font-weight: 700;
             z-index: 0;
         }
@@ -176,46 +165,49 @@
             z-index: 1;
             font-weight: 500;
             color: var(--secondary-color);
+            font-size: 0.9rem;
         }
 
         .team {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 80px;
-            margin-top: 80px;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
         }
 
         .team-member {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .team-member img {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             filter: grayscale(100%);
-            transition: filter 0.3s ease, transform 0.3s ease;
+            transition: filter 0.3s ease;
             border-radius: 50%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .team-member:hover img {
             filter: grayscale(0%);
-            transform: scale(1.05);
         }
 
         .team-member h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
             color: var(--primary-color);
         }
 
         .team-member p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         a {
@@ -234,75 +226,49 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 992px) {
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 8vw;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .milestone {
+                flex-basis: calc(50% - 15px);
+            }
+
+            .team {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 60px;
+            }
+
+            .team-member img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        @media (min-width: 992px) {
             :root {
                 --section-padding: 100px 5vw;
             }
 
             h1 {
-                font-size: 10vw;
+                font-size: 6vw;
             }
 
-            h2 {
-                font-size: 2.25rem;
+            header p {
+                font-size: 1.4rem;
             }
 
-            .team {
-                gap: 60px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 12vw;
+            p {
+                font-size: 1.1rem;
             }
 
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 80px 5vw;
-            }
-
-            .milestone {
-                flex-basis: 100%;
-            }
-
-            .team {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 50px;
-            }
-
-            .team-member:nth-child(1) {
-                order: 1;
-            }
-
-            .team-member:nth-child(2) {
-                order: 3;
-            }
-
-            .team-member:nth-child(3) {
-                order: 2;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 14vw;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-            }
-
-            .team {
-                grid-template-columns: 1fr;
-            }
-
-            .team-member img {
-                width: 200px;
-                height: 200px;
+            .milestone-content {
+                font-size: 1rem;
             }
         }
     </style>
@@ -373,7 +339,7 @@
                         <img src="./assets/caleb.jpg" alt="Caleb Yip">
                         <h3>Caleb Yip</h3>
                         <p>MBA from The University of Chicago. 15 years of experience at corporations such as JPM and Apple. Extensive expertise in strategy, operations and data analytics.</p>
-                        <p><a href="mailto:cyip.booth@gmail.com">cyip.booth@gmail.com</a></p>
+                        <p><a href="mailto:cyip@chicagobooth.edu">cyip@chicagobooth.edu</a></p>
                     </div>
                 </div>
             </div>
